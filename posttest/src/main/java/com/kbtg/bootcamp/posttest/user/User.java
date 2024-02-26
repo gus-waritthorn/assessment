@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 public class User {
     @Id
     private String id;
@@ -19,13 +19,9 @@ public class User {
     private String role;
 
     @OneToMany(mappedBy = "user")
-    private List<UserTicket> user;
+    private List<UserTicket> userTickets;
 
-    public User(String id, String username, String role, List<UserTicket> user) {
-        this.id = id;
-        this.username = username;
-        this.role = role;
-        this.user = user;
+    public User() {
     }
 
     public String getId() {
@@ -40,8 +36,8 @@ public class User {
         return role;
     }
 
-    public List<UserTicket> getUser() {
-        return user;
+    public List<UserTicket> getUserTickets() {
+        return userTickets;
     }
 
     public void setId(String id) {
@@ -56,8 +52,8 @@ public class User {
         this.role = role;
     }
 
-    public void setUser(List<UserTicket> user) {
-        this.user = user;
+    public void setUserTickets(List<UserTicket> userTickets) {
+        this.userTickets = userTickets;
     }
 }
 
