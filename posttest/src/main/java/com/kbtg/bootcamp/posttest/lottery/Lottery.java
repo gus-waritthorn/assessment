@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "lottery")
+@Table(name = "lottery", schema = "public")
 public class Lottery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,18 +16,12 @@ public class Lottery {
     private String ticket;
     private Integer price;
     private Integer amount;
-    private Boolean isAvailable;
+    private Boolean isAvailable = true;
 
     @OneToMany(mappedBy = "lottery")
-    private List<UserTicket> lottery;
+    private List<UserTicket> userTickets;
 
-    public Lottery(Integer id, String ticket, Integer price, Integer amount, Boolean isAvailable, List<UserTicket> lottery) {
-        this.id = id;
-        this.ticket = ticket;
-        this.price = price;
-        this.amount = amount;
-        this.isAvailable = isAvailable;
-        this.lottery = lottery;
+    public Lottery() {
     }
 
     public Integer getId() {
@@ -50,8 +44,8 @@ public class Lottery {
         return isAvailable;
     }
 
-    public List<UserTicket> getLottery() {
-        return lottery;
+    public List<UserTicket> getUserTickets() {
+        return userTickets;
     }
 
     public void setId(Integer id) {
@@ -74,7 +68,7 @@ public class Lottery {
         isAvailable = available;
     }
 
-    public void setLottery(List<UserTicket> lottery) {
-        this.lottery = lottery;
+    public void setUserTickets(List<UserTicket> userTickets) {
+        this.userTickets = userTickets;
     }
 }

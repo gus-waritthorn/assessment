@@ -1,4 +1,4 @@
-package com.example.javacourse.exception;
+package com.kbtg.bootcamp.posttest.exception;
 
 import org.springframework.http.HttpStatus;
 
