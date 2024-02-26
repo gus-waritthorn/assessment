@@ -32,7 +32,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({BadRequestException.class})
     public ResponseEntity<ApiErrorResponse> handleBadRequestException(BadRequestException e) {
-        System.out.print("haha eieieieieieie");
         ApiErrorResponse errorResponse =
                 new ApiErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST, ZonedDateTime.now());
         return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
