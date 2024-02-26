@@ -26,4 +26,3 @@ CREATE TABLE user_ticket (
 -- Initial data
 INSERT INTO "user" (id, username, role) VALUES('1111111111', 'admin', 'ADMIN');
 INSERT INTO "user" (id, username, role) VALUES('2222222222', 'customer', 'CUSTOMER');
-INSERT INTO "lottery" (ticket, price, amount) VALUES('123456', 100, 1);
